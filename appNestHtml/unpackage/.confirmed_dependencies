@@ -1,0 +1,13 @@
+{
+  "html/index.html": {
+    "refer": [
+      "html/all.html"
+    ],
+    "resources": []
+  },
+  "html/home.html": {
+    "refer": [
+      "html/all.html"
+    ]
+  }
+}
