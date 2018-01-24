@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script src="../js/home.js"></script>
+		<script type="text/javascript">
+		</script>
+		<style type="text/css">
+			.circular-square {
+				border-radius: 50%;
+				width: 45px;
+				height: 45px;
+			}
+			
+			.background-white {
+				background-color: white;
+			}
+			
+			.mui-grid-view.mui-grid-9 {
+				margin: 0;
+				padding: 0;
+				border-top: 0px solid #eee;
+				border-left: 0px solid #eee;
+				background-color: white
+			}
+
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+				margin: 0;
+				padding: 11px 15px;
+				vertical-align: top;
+				border-right: 0px solid #eee;
+				border-bottom: 0px solid #eee
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav common-background-bar">
+			<h1 class="mui-title common-color-white common-font-family-Bold">首页</h1>
+		</header>
+		<div class="mui-scroll-wrapper" style="margin-top: 45px;">
+			<div class="mui-scroll">
+				<div class="mui-content">
+					<!--轮播控件-->
+					<div id="slider" class="mui-slider">
+						<div class="mui-slider-group mui-slider-loop">
+						</div>
+						<div class="mui-slider-indicator">
+						</div>
+					</div>
+					<!--圆形按钮-->
+					<div class="background-white">
+						<ul id="circler" class="mui-table-view mui-grid-view mui-grid-9 "></ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		mui('.mui-scroll-wrapper').scroll({
+			indicators: true, //是否显示滚动条
+		});
+		mui.plusReady(function() {
+			var titles = ["", "", ""]
+			//加黑条
+			addStrip(getImgArray())
+			//加图片
+			addImg(getImgArray(), titles)
+			var slider = mui("#slider");
+			//轮播开始
+			slider.slider({
+				interval: 5000
+			});
+			//圆圈按钮
+			getHomeCircle('circler');
+
+		})
+		/**
+		 * 九宫格
+		 *  圆形按钮
+		 * @param {Object} id 父控件id
+		 */
+		var getHomeCircle = function(id) {
+			//九宫格底部标题数组
+			var chars = ["基础信息", "通知公告", "事务审批", "班级管理", "课堂管理", "访客", "请假", "敬请期待"];
+			//九宫格图片地址数组
+			var imgUrls = ["../image/u52.png",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+				"../image/u56.png",
+				"../image/u54.png",
+				"../image/u197.png",
+				"../image/u193.png",
+				"../image/u191.png",
+				"../image/u195.png",
+				"../image/u189.png"
+			];
+			//点击跳转的html地址数组
+			var urls = ['all.html','all.html' ,'all.html' ,'all.html' ,'all.html' ,'all.html' ,'all.html' , 'all.html'];
+			var gride = document.getElementById(id); //九宫格父控件
+			createGirde(gride, createArray(chars, imgUrls, urls)); //创建九宫格
+		}
+	</script>
+
+</html>
