@@ -68,7 +68,7 @@
 		mui('.mui-scroll-wrapper').scroll({
 			indicators: true, //是否显示滚动条
 		});
-		mui.plusReady(function() {
+<!--        mui.plusReady(function() {-->
 			var titles = ["", "", ""]
 			//加黑条
 			addStrip(getImgArray())
@@ -82,30 +82,8 @@
 			//圆圈按钮
 			getHomeCircle('circler');
 
-		})
-		/**
-		 * 九宫格
-		 *  圆形按钮
-		 * @param {Object} id 父控件id
-		 */
-		var getHomeCircle = function(id) {
-			//九宫格底部标题数组
-			var chars = ["基础信息", "通知公告", "事务审批", "班级管理", "课堂管理", "访客", "请假", "敬请期待"];
-			//九宫格图片地址数组
-			var imgUrls = ["../image/firstPage/firstPage0.png",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-				"../image/firstPage/firstPage1.png",
-				"../image/firstPage/firstPage2.png",
-				"../image/firstPage/firstPage3.png",
-				"../image/firstPage/firstPage4.png",
-				"../image/firstPage/firstPage5.png",
-				"../image/firstPage/firstPage6.png",
-				"../image/firstPage/firstPage7.png"
-			];
-			//点击跳转的html地址数组
-			var urls = ['all.html','all.html' ,'all.html' ,'all.html' ,'all.html' ,'all.html' ,'all.html' , 'all.html'];
-			var gride = document.getElementById(id); //九宫格父控件
-			createGirde(gride, createArray(chars, imgUrls, urls)); //创建九宫格
-		}
+<!--        })-->
+
 	</script>
 
 </html>
