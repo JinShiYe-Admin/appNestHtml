@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 
@@ -7,15 +6,13 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.min.css" rel="stylesheet" />
-		<script type="text/javascript" src="../js/mui.min.js"></script>
-		<script src="../js/home.js"></script>
-		<script type="text/javascript">
-		</script>
+		<link href="../css/weui.min.css" rel="stylesheet" />
+
 		<style type="text/css">
 			.circular-square {
 				border-radius: 50%;
-				width: 45px;
-				height: 45px;
+				width: 56px;
+				height: 56px;
 			}
 			
 			.background-white {
@@ -29,20 +26,84 @@
 				border-left: 0px solid #eee;
 				background-color: white
 			}
-
+			
 			.mui-grid-view.mui-grid-9 .mui-table-view-cell {
 				margin: 0;
 				padding: 11px 15px;
 				vertical-align: top;
 				border-right: 0px solid #eee;
-				border-bottom: 0px solid #eee
+				border-bottom: 0px solid #eee;
+			}
+			
+			.mine-container {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 1000;
+				background-color: rgba(0, 0, 0, 0.3);
+			}
+			
+			.display-none {
+				display: none;
+			}
+			
+			.display-block {
+				display: block;
+			}
+			
+			.mine-left-container {
+				position: fixed;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 30%;
+				background-color: #D9D9D9;
+				/*display: flex;
+				display: -webkit-flex;
+				flex-direction: column;*/
+			}
+			
+			.weui-cells {
+				margin-top: 0;
+			}
+			
+			.head-portrait {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+			}
+			
+			.user-name {
+				font-size: 22px;
+				color: #333333;
+			}
+			
+			.user-info {
+				background-color: white;
+				padding: 50px 0 50px 0;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			
+			.weui-cell.weui-cell_access {
+				background-color: white;
+			}
+			
+			.weui-btn.weui-btn_warn {
+				position: absolute;
+				bottom: 50px;
+				margin-left: 5%;
+				width: 90%;
 			}
 		</style>
 
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav common-background-bar">
+        <header class="mui-bar mui-bar-nav" style="background-color:#63BBFF">
+			<a href="javascript:mine.isMineShow=true;" class="mui-icon  mui-pull-left mui-icon-chatbubble"></a>
 			<h1 class="mui-title common-color-white common-font-family-Bold">首页</h1>
 		</header>
 		<div class="mui-scroll-wrapper" style="margin-top: 45px;">
@@ -63,12 +124,33 @@
 				</div>
 			</div>
 		</div>
-	</body>
-	<script>
-		mui('.mui-scroll-wrapper').scroll({
-			indicators: true, //是否显示滚动条
-		});
-<!--        mui.plusReady(function() {-->
+		<div id="mine" class="weui-cells mine-container" v-on:click="isMineShow=false" v-show="isMineShow">
+			<div class="mine-left-container" v-on:click.stop="">
+				<div class="user-info">
+					<img class="head-portrait" src="../img/firstPage/firstPage0.png" />
+					<p class="user-name">name</p>
+				</div>
+				<a v-for="setting in settings" class="weui-cell weui-cell_access" v-on:click="jumpToDetail(setting)">
+					<div class="weui-cell__bd">
+						<p><span></span>{{setting.name}}</p>
+					</div>
+					<div class="weui-cell__ft"></div>
+				</a>
+				<a class="weui-btn weui-btn_warn" v-on:click="quitLogin">
+					退出登录
+				</a>
+			</div>
+		</div>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/utils/utils.js"></script>
+		<script type="text/javascript" src="../js/utils/storageutil.js"></script>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<script src='../js/lib/vconsole/vconsole.min.js'></script>
+		<script src="../js/home.js"></script>
+		<script>
+			mui('.mui-scroll-wrapper').scroll({
+				indicators: true, //是否显示滚动条
+			});
 			var titles = ["", "", ""]
 			//加黑条
 			addStrip(getImgArray())
@@ -81,9 +163,40 @@
 			});
 			//圆圈按钮
 			getHomeCircle('circler');
-
-<!--        })-->
-
-	</script>
-
+			mui(".mui-table-view").on('tap', 'a', function() {
+				var id = this.parentElement.id
+				if(id==1||id==2){
+					utils.hrefSessionStorage("all.html", id);
+				}else{
+					mui.toast("此功能暂未开放");
+				}
+			})
+			var mine = new Vue({
+				el: "#mine",
+				data: {
+					settings: [{
+						name: "密码修改",
+						icon: "",
+						href: ""
+					}, {
+						name: "关于我们",
+						icon: "",
+						href: ""
+					}],
+					isMineShow: false //屏蔽或显示我的界面
+				},
+				methods: {
+					quitLogin: function() { //退出登录
+						this.isMineShow = false;
+						history.go(-1);
+					},
+					jumpToDetail: function(setting) {
+						console.log("dfffff")
+						this.isMineShow = false;
+						location.href = setting.href;
+					}
+				}
+			})
+		</script>
+	</body>
 </html>

@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/utils/utils.js"></script>
+		<script type="text/javascript" src="../js/utils/storageutil.js"></script>
+		<link rel="stylesheet" href="../js/demoCssJs/weui.min.css">
+		<link rel="stylesheet" href="../js/demoCssJs/jquery-weui.css">
+		<link rel="stylesheet" href="../js/demoCssJs/demos.css">
+		<script type="text/javascript">
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="mui-content">
+			<div style="height: 200px;font-size: 25px;color: dodgerblue;padding: 100px 0px;text-align: center;">登录</div>
+			<div class="mui-input-row">
+				<label style="margin-top: -5px;"><image src="../img/login/username.png" style="width: 30px;height: 30px;" /></label>
+				<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入用户名">
+			</div>
+			<hr style=" height:1px;border:none;border-top:1px solid dodgerblue;margin: -12px 20px 5px 60px ;" />
+
+			<div class="mui-input-row ">
+				<label><image src="../img/login/password.png" style="width: 30px;height: 30px;" /></label>
+				<input id='password' type="password" class="mui-input-clear mui-input " placeholder="请输入6位密码">
+			</div>
+			<hr style=" height:1px;border:none;border-top:1px solid dodgerblue;margin: -12px 20px 0px 60px ;" />
+
+			<div style="padding: 0px 20px;">
+				<button id='login' type="button" class="mui-btn mui-btn-block mui-btn-primary" style="background: #13b7f6; border:none; margin-top: 30px;">登录</button>
+			</div>
+		</div>
+	</body>
+	<!--加密-->
+	<script src="../js/lib/RSA/Barrett.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/lib/RSA/BigInt.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/lib/RSA/RSA.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/utils/RSAEncrypt.js" type="text/javascript" charset="utf-8"></script>
+	<!---->
+	<script src='../js/lib/vconsole/vconsole.min.js'></script>
+	<script src='../js/lib/crypto-js/require.js'></script>
+	<script src='../js/utils/signHmacSHA1.js'></script>
+	<script src='../js/lib/jquery.js'></script>
+	<script src="../js/publicProtocol.js"></script>
+	<script src='../js/utils/sortSign.js'></script>
+	<script src="../js/utils/myStorage.js"></script>
+	<script src="../js/utils/storageKeyName.js"></script>
+	<script src="../js/jquery-weui.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+		});
+		var tempModel = {
+			uuid: '',
+			appid: ''
+		}
+		document.getElementById("login").addEventListener('tap', function(event) {
+			if(utils.getSystem() == 'Android') {
+				console.log("native:appid:" + native.getAPPID());
+				console.log("native:schoolid:" + native.getSCHOOLID());
+				tempModel.uuid = native.getSCHOOLID();
+				tempModel.appid = native.getAPPID();
+			}
+			console.log("登录");
+			var tempName = document.getElementById("account").value;
+			var tempPW = document.getElementById("password").value;
+			console.log('tempName:' + tempName + ',tempPW' + tempPW);
+			//判断输入是否符合要求
+			if(checkInput(tempName)) {
+				if(checkInput(tempPW)) {
+					//握手
+					var enData0 = {};
+					//不需要加密的数据
+					var comData0 = {
+						uuid: tempModel.uuid, //用户设备号
+						shaketype: 'login', //注册(reg),登录(login),修改密码(repw)
+						appid: tempModel.appid //系统所分配的应用ID
+					};
+					$.showLoading();
+					//发送网络请求，data为网络返回值
+					postDataEncry('ShakeHand', enData0, comData0, 0, function(data) {
+						console.log('2121212');
+						if(data.RspCode == 0) {
+							window.myStorage.setItem(window.storageKeyName.SHAKEHAND, data.RspData);
+							var enData1 = {
+								uid: tempName, //用户账号
+								pw: tempPW //用户密码
+							};
+							//不需要加密的数据
+							var comData1 = {
+								uuid: tempModel.uuid, //用户设备号
+								shaketype: 'login', //注册(reg),登录(login),修改密码(repw)
+								appid: tempModel.appid, //系统所分配的应用ID
+								schid: '100005', //学校ID
+								utp: '0' //用户类型，0老师,1家长,2学生
+							};
+							//登录
+							postDataEncry('Login', enData1, comData1, 0, function(data1) {
+								$.hideLoading();
+								if(data1.RspCode == 0) {
+									window.myStorage.setItem(window.storageKeyName.PERSONALINFO, data1.RspData);
+								} else {
+									mui.toast(data1.RspTxt);
+								}
+							});
+						} else {
+							$.hideLoading();
+							mui.toast(data.RspTxt);
+						}
+					});
+				} else {
+
+				}
+			} else {
+
+			}
+		});
+
+		//从ios原生得到信息
+		//从ios原生得到信息
+		var setUUID = function(tempStr) {
+			var tempModel0 = $.parseJSON(tempStr);
+			tempModel.uuid = tempModel0.id;
+			tempModel.appid = tempModel0.name;
+			console.log('tempStr:' + tempStr);
+			//判断上次是否登录过，自动登录
+			var personal = window.myStorage.getItem(window.storageKeyName.PERSONALINFO);
+			if(personal && personal.utid != 0) { //有账号，正常登录
+				//需要参数
+				var comData = {
+					uuid: tempModel0.id,
+					utid: personal.utid,
+					utoken: personal.utoken,
+					appid: tempModel0.name,
+					schid: personal.schid,
+					utname: personal.utname
+				};
+				$.showLoading();
+				//令牌续订
+				postDataEncry('TokenReset', {}, comData, 0, function(data) {
+					$.hideLoading();
+					if(data.RspCode == 0) {
+						var tempInfo00 = window.myStorage.getItem(window.storageKeyName.PERSONALINFO);
+						tempInfo00.token = data.RspData;
+						window.myStorage.setItem(window.storageKeyName.PERSONALINFO, tempInfo00);
+						utils.hrefSessionStorage('home.html', {});
+					} else {
+						mui.toast(data.RspTxt);
+					}
+				});
+			}
+		}
+		//判断是否输入了值
+		var checkInput = function(text) {
+			if(text.trim().length == 0) {
+				mui.toast('请输入账号密码');
+				return false;
+			}
+			if(isNull(text)) {
+				mui.toast('请输入账号密码');
+				return false;
+			}
+			return true;
+		}
+
+		//判断输入字符串是否为空或者全部都是空格
+		function isNull(str) {
+			if(str == "") return true;
+			var regu = "^[ ]+$";
+			var re = new RegExp(regu);
+			return re.test(str);
+		}
+	</script>
+
+</html>

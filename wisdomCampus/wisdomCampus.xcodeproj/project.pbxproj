@@ -7,19 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431151D720285B74004D8C20 /* html in Resources */ = {isa = PBXBuildFile; fileRef = 431151D620285B74004D8C20 /* html */; };
+		431151D920285B7D004D8C20 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 431151D820285B7D004D8C20 /* js */; };
+		431C9055202467AF00EB1320 /* css in Resources */ = {isa = PBXBuildFile; fileRef = 431C9054202467AF00EB1320 /* css */; };
+		436BB77B20204F6500F8F432 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436BB77920204F6500F8F432 /* LoginViewController.m */; };
+		436BB77C20204F6500F8F432 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436BB77A20204F6500F8F432 /* LoginViewController.xib */; };
+		436BB7812020547200F8F432 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 436BB77D2020547200F8F432 /* img */; };
+		436BB7822020547200F8F432 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 436BB77E2020547200F8F432 /* fonts */; };
 		4395892E2016D7D50088290E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4395892D2016D7D50088290E /* AppDelegate.m */; };
 		439589312016D7D50088290E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439589302016D7D50088290E /* ViewController.m */; };
 		439589342016D7D50088290E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439589322016D7D50088290E /* Main.storyboard */; };
 		439589362016D7D50088290E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 439589352016D7D50088290E /* Assets.xcassets */; };
 		439589392016D7D50088290E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439589372016D7D50088290E /* LaunchScreen.storyboard */; };
 		4395893C2016D7D50088290E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4395893B2016D7D50088290E /* main.m */; };
-		43E81A35201873650024A18C /* js in Resources */ = {isa = PBXBuildFile; fileRef = 43E81A31201873640024A18C /* js */; };
-		43E81A36201873650024A18C /* image in Resources */ = {isa = PBXBuildFile; fileRef = 43E81A32201873640024A18C /* image */; };
-		43E81A37201873650024A18C /* css in Resources */ = {isa = PBXBuildFile; fileRef = 43E81A33201873650024A18C /* css */; };
-		43E81A38201873650024A18C /* html in Resources */ = {isa = PBXBuildFile; fileRef = 43E81A34201873650024A18C /* html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		431151D620285B74004D8C20 /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
+		431151D820285B7D004D8C20 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
+		431C9054202467AF00EB1320 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
+		436BB77820204F6500F8F432 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		436BB77920204F6500F8F432 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		436BB77A20204F6500F8F432 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		436BB77D2020547200F8F432 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
+		436BB77E2020547200F8F432 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		439589292016D7D50088290E /* wisdomCampus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wisdomCampus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4395892C2016D7D50088290E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4395892D2016D7D50088290E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -30,10 +41,6 @@
 		439589382016D7D50088290E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4395893A2016D7D50088290E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4395893B2016D7D50088290E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		43E81A31201873640024A18C /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
-		43E81A32201873640024A18C /* image */ = {isa = PBXFileReference; lastKnownFileType = folder; path = image; sourceTree = "<group>"; };
-		43E81A33201873650024A18C /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
-		43E81A34201873650024A18C /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +107,11 @@
 		439589442016DD5C0088290E /* htmls */ = {
 			isa = PBXGroup;
 			children = (
-				43E81A34201873650024A18C /* html */,
-				43E81A33201873650024A18C /* css */,
-				43E81A32201873640024A18C /* image */,
-				43E81A31201873640024A18C /* js */,
+				431151D820285B7D004D8C20 /* js */,
+				431151D620285B74004D8C20 /* html */,
+				431C9054202467AF00EB1320 /* css */,
+				436BB77E2020547200F8F432 /* fonts */,
+				436BB77D2020547200F8F432 /* img */,
 			);
 			path = htmls;
 			sourceTree = "<group>";
@@ -111,6 +119,9 @@
 		439589452016DD730088290E /* viewController */ = {
 			isa = PBXGroup;
 			children = (
+				436BB77820204F6500F8F432 /* LoginViewController.h */,
+				436BB77920204F6500F8F432 /* LoginViewController.m */,
+				436BB77A20204F6500F8F432 /* LoginViewController.xib */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -173,13 +184,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43E81A37201873650024A18C /* css in Resources */,
+				436BB7812020547200F8F432 /* img in Resources */,
+				431151D920285B7D004D8C20 /* js in Resources */,
+				431151D720285B74004D8C20 /* html in Resources */,
+				436BB77C20204F6500F8F432 /* LoginViewController.xib in Resources */,
 				439589392016D7D50088290E /* LaunchScreen.storyboard in Resources */,
-				43E81A36201873650024A18C /* image in Resources */,
+				431C9055202467AF00EB1320 /* css in Resources */,
+				436BB7822020547200F8F432 /* fonts in Resources */,
 				439589362016D7D50088290E /* Assets.xcassets in Resources */,
 				439589342016D7D50088290E /* Main.storyboard in Resources */,
-				43E81A38201873650024A18C /* html in Resources */,
-				43E81A35201873650024A18C /* js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				436BB77B20204F6500F8F432 /* LoginViewController.m in Sources */,
 				439589312016D7D50088290E /* ViewController.m in Sources */,
 				4395893C2016D7D50088290E /* main.m in Sources */,
 				4395892E2016D7D50088290E /* AppDelegate.m in Sources */,
@@ -329,10 +343,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68R8QP4X33;
 				INFOPLIST_FILE = wisdomCampus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JSY.wisdomCampus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -343,10 +358,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68R8QP4X33;
 				INFOPLIST_FILE = wisdomCampus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JSY.wisdomCampus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
