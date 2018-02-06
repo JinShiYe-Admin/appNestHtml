@@ -1,0 +1,352 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../js/demoCssJs/weui.min.css">
+		<link rel="stylesheet" href="../js/demoCssJs/jquery-weui.css">
+		<link rel="stylesheet" href="../js/demoCssJs/demos.css">
+		<style type="text/css">
+			.center-horizontal {
+				text-align: center;
+			}
+			
+			.leave-detail,
+			.check-flow {
+				background-color: white;
+				padding: 20px;
+			}
+			
+			.check-flow {
+				margin-top: 20px;
+			}
+			
+			.color_primary {
+				color: #3c9bfe;
+			}
+			
+			.mui-btn-primary {
+				border: 1px solid #3C9BFE;
+				background-color: #3C9BFE;
+			}
+			
+			.mui-btn-danger {
+				border: 1px solid #f96161;
+				background-color: #f96161;
+			}
+			
+			.display-inline {
+				display: inline-block;
+			}
+			
+			.extral-file {
+				padding-right: 10px;
+			}
+			
+			.prev-down {
+				padding-left: 20px;
+			}
+			
+			.prev-btn,
+			.down-btn {
+				margin-left: 20px;
+			}
+			
+			.mui-btn-outlined.mui-btn-primary {
+				color: #3C9BFE;
+				background-color: transparent;
+			}
+			
+			.mui-btn-outlined.mui-btn-danger {
+				color: #f96161;
+				background-color: transparent;
+			}
+			
+			.mui-btn-outlined {
+				margin-left: 20px;
+				width: 92px;
+				height: 40px;
+			}
+			
+			.check-reply-back {
+				text-align: right;
+				margin-top: 30px;
+			}
+			
+			.check-container {
+				font-size: 12px;
+				color: #333333;
+				padding: 8px 16px;
+				border: solid 1px darkgray;
+				border-radius: 5px;
+				display: inline-block;
+			}
+			
+			.checker-name {
+				font-weight: bold;
+			}
+			
+			.check-reply,
+			.reply-time {
+				padding-left: 16px;
+			}
+			
+			.check-reply-title {
+				font-weight: bold;
+				font-size: 24px;
+				color: #000000;
+			}
+			
+			.check-reply-hint {
+				font-size: 16px;
+				color: #333333;
+				background-color: #D9D9D9;
+				margin-bottom: 0;
+			}
+			
+			.check-reply-keywords {
+				color: #3C9BFE;
+			}
+			
+			.check-reply-container {
+				padding: 16px;
+				margin-top: 60%;
+				opacity: 10;
+				margin-left: 5%;
+				margin-right: 5%;
+			}
+			
+			.textarea-container {
+				border: solid 1px darkgrey;
+			}
+			
+			textarea {
+				border: none;
+				margin-bottom: 0;
+				padding: 5px 10px;
+			}
+			
+			.reply-container {
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				z-index: 1000;
+				background-color: rgba(0, 0, 0, 0.3);
+			}
+			
+			.display-none {
+				display: none;
+				opacity: 0;
+			}
+			
+			.display-block {
+				display: block;
+				opacity: 0.3;
+			}
+			
+			.dialog-btn {
+				width: 70px;
+				height: 35px;
+				margin: 15px 15px 0;
+			}
+			
+			.refused-words {
+				color: indianred;
+			}
+			
+			.applied-words {
+				color: green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background-color: #63BBFF;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+			<h1 class="mui-title" style="color: white;">审批详情</h1>
+		</header>
+		<div class="mui-content" id="checkDetailData">
+			<template v-if="leaveDetail.ApplyTitle">
+				<div class="leave-detail">
+					<h3 class="center-horizontal">{{leaveDetail.ApplyTitle}}</h3>
+					<p class="center-horizontal"><span>{{leaveDetail.ApplyManName}}</span> | <span>{{leaveDetail.CreateTime}}</span></p>
+					<p>{{leaveDetail.ApplyContent}}</p>
+					<div>
+						<template v-for="(extraFile,index) in leaveDetail.ApplyEncName">
+							<p class="display-inline extral-file">附件：<span class="color_primary">{{extraFile}}</span></p>
+							<p class="display-inline prev-down"><button class="prev-btn">预览</button><button class="mui-btn-primary down-btn">下载</button></p>
+						</template>
+					</div>
+					<div v-if="flag==0&&leaveDetail.ApproveStatus==0" class="check-reply-back">
+						<button class="mui-btn mui-btn-primary mui-btn-outlined" v-on:click="replyShow=true;approveResult=1">批复</button>
+						<button class="mui-btn-danger mui-btn-outlined" v-on:click="replyShow=true;approveResult=2">退回</button>
+					</div>
+				</div>
+				<div class="check-flow">
+					<div v-for="check in leaveDetail.ApproveList">
+						<p class="check-container">
+							<span class="checker-name">{{check.ApproveManName}}</span>
+							<span v-if="check.ApproveTime" class="check-reply" v-bind:class="[{'applied-words':check.ApproveStatus==1},{'refused-words':check.ApproveStatus==2}]">
+							<span class="reply-content">{{check.ApproveContent}}</span>
+							<span class="reply-time">----{{check.ApproveTime}}</span>
+							</span>
+						</p>
+					</div>
+				</div>
+				<div class="reply-container" v-if="replyShow" v-on:click="replyShow=false">
+					<div class="check-reply-container" style="background-color: white;" v-on:click.stop>
+						<p class="check-reply-title">批复内容</p>
+						<div class="textarea-container">
+							<p class="check-reply-hint">快速输入:<span v-for="(words,index) in keywords" v-on:click="replyContent=words" class="check-reply-keywords">{{words}}<span v-if="index<keywords.length-1" style="color: #333333;">、</span></span>
+							</p>
+							<textarea rows="3" v-model.trim="replyContent">
+						
+						</textarea>
+						</div>
+						<p style="text-align: center; margin-bottom: 0;"><button v-on:click.stop="replyLeave" class="mui-btn-primary dialog-btn">确定</button><button class="mui-btn dialog-btn" v-on:click.stop="replyShow=false">取消</button></p>
+					</div>
+				</div>
+			</template>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/vue.js"></script>
+		<script src="../js/publicProtocol.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/demoCssJs/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/demoCssJs/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/utils/utils.js"></script>
+		<script src="../js/utils/storageutil.js"></script>
+		<script src='../js/lib/vconsole/vconsole.min.js'></script>
+		<script type="text/javascript">
+			var checkDetailData = new Vue({
+				el: "#checkDetailData",
+				data: {
+					id: 0, //id
+					flag: 0, //0审核 1我发送的
+					leaveDetail: {},
+					keywords: [
+						"同意",
+						"拟同意",
+						"情况属实",
+						"已阅"
+					],
+					approveResult: 0, //1同意 2 退回
+					replyShow: false,
+					replyContent: "",
+					approveIndex: 0
+				},
+				mounted: function() {
+					console.log("mounted");
+					this.getDetail();
+				},
+				watch: {
+					leaveDeatil: function(newVal, oldVal) {
+						if((!oldVal.ApproveList) && this.flag == 0) {
+							this.getApproveIndex();
+						}
+					}
+				},
+				methods: {
+					getExtraFileNames: function(extraFileName) {
+						return extraFileName.split("|");
+					},
+					getApproveIndex: function() {
+						for(var i = 0; i < this.leaveDetail.ApproveList; i++) {
+							if(this.leaveDetail.ApproveList[i].ApproveId == this.id) {
+								return i;
+							}
+						}
+					},
+					replyLeave: function() {
+						console.log('approveResult:' + checkDetailData.approveResult);
+						if(!this.replyContent) {
+							$.toast("请输入审批内容！");
+							return
+						}
+						var com = this;
+						//16.审批事务及文件申请
+						var tempData = {
+							approveId: com.id, //审批ID
+							approveContent: com.replyContent, //审批内容
+							approveResult: com.approveResult //审批结果，1 同意，2 退回
+						}
+						setAffairApprovePro(tempData, function(data) {
+							console.log("获取的审批结果:" + JSON.stringify(data));
+							if(data.RspCode == 0) {
+								com.replyContent = "";
+								com.getDetail();
+								com.replyShow = false;
+							} else {
+								$.alert(data.RspTxt);
+							}
+						});
+
+					},
+					getDetail: function() {
+						var localSkey = utils.getSessionStorageByUrlsKey();
+						if(localSkey != null) {
+							this.id = localSkey.id;
+							this.flag = parseInt(localSkey.flag);
+						} else {
+							$.alert("程序内部参数错误，请返回上一界面！", function() {
+								history.go(-1);
+							});
+							return;
+						}
+						if(this.flag == 0) {
+							this.getCheckDetail();
+						} else {
+							this.getLeaveDetail();
+						}
+					},
+					getLeaveDetail: function() {
+						var com = this;
+						$.showLoading();
+						//19.通过ID获取事务及文件申请
+						var tempData = {
+							applyId: this.id
+						}
+						getAffairApplyByIdPro(tempData, function(data) {
+							$.hideLoading();
+							if(data.RspCode == 0) {
+								console.log('data:' + JSON.stringify(data));
+								if(data.RspData.ApplyEncName) {
+									data.RspData.ApplyEncName = com.getExtraFileNames(data.RspData.ApplyEncName);
+									data.RspData.ApplyEncAddr = com.getExtraFileNames(data.RspData.ApplyEncAddr);
+								}
+								com.leaveDetail = data.RspData;
+							} else {
+								$.alert(data.RspTxt);
+							}
+						});
+					},
+					getCheckDetail: function() {
+						var com = this;
+						$.showLoading();
+						var tempData = {
+							approveId: this.id
+						}
+						getAffairApproveByIdPro(tempData, function(data) {
+							console.log("获取的审核详情：" + JSON.stringify(data));
+							$.hideLoading();
+							if(data.RspCode == 0) {
+								if(data.RspData.ApplyEncName) {
+									data.RspData.ApplyEncName = com.getExtraFileNames(data.RspData.ApplyEncName)
+									data.RspData.ApplyEncAddr = com.getExtraFileNames(data.RspData.ApplyEncAddr)
+								}
+								com.leaveDetail = data.RspData;
+							} else {
+								$.alert(data.RspTxt);
+							}
+						})
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

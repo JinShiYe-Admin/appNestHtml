@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../js/demoCssJs/weui.min.css">
+		<link rel="stylesheet" href="../js/demoCssJs/jquery-weui.css">
+		<link rel="stylesheet" href="../js/demoCssJs/demos.css">
+		<style type="text/css">
+			.contentCSS {
+				margin-left: 15px;
+				margin-right: 15px;
+				font-size: 14px;
+				color: #666;
+			}
+			
+			.titleCSS {
+				font-size: 18px;
+				color: #000;
+			}
+			
+			.name-timeCSS {
+				font-size: 12px;
+				color: #999;
+			}
+			
+			.encName {
+				margin-left: 15px;
+				margin-right: 15px;
+				font-size: 12px;
+				color: #333;
+			}
+			
+			.encTitle {
+				font-size: 12px;
+				color: #999;
+			}
+			
+			.encSize {
+				font-size: 12px;
+				color: #3c9bfe;
+			}
+			
+			.readPeople {
+				font-size: 14px;
+				color: #666;
+			}
+			
+			.clickButton {
+				margin-left: 5px;
+				height: 18px;
+				width: 40px;
+				padding: 0 5px 5px 5px;
+				font-size: 10px;
+			}
+		</style>
+	</head>
+
+	<body style="background-color: white;">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">通知详情</h1>
+		</header>
+		<div class="mui-content" id="noticeDetailData" v-show="flag>0" style="background-color: white;">
+			<template>
+				<p align="center" class="titleCSS" style="font-size: 18px;color: #000;margin-top: 10px;">{{detailModel.NoticeTitle}}</p>
+				<p align="center" class="name-timeCSS" style="font-size: 12px;color: #999;">{{detailModel.SendManName}} | {{detailModel.SendTime}}</p>
+				<p class="contentCSS" style="font-size: 14px;color: #666;">{{detailModel.NoticeContent}}</p>
+				<p class="encName">附件:
+					<a class="encTitle">{{detailModel.NoticeEncName}}<button v-on:click.stop="checkEnc(0)" type="button" class="mui-btn mui-btn-grey clickButton" style="">预览</button><button v-on:click.stop="checkEnc(1)" type="button" class="mui-btn mui-btn-blue clickButton">下载</button></a>
+					<p class="" style="height: 10px;background-color: #f2f2f2;"></p>
+				</p>
+				<!--滑动组件-->
+				<div id="sliderSegmentedControl" class=" mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
+					<a id="item1" class="mui-control-item mui-active readPeople" href="#div-finished">
+						已完成({{detailModel.ReadCnt}})
+					</a>
+
+					<a id="item2" class="mui-control-item readPeople" href="#div-unfinish">
+						未完成({{detailModel.NoReadCnt}})
+					</a>
+				</div>
+				<!--滑动内容-->
+				<div class="mui-slider-group">
+					<div id="div-finished" class="mui-slider-item mui-control-content mui-active">
+						<a class="contentCSS">{{detailModel.ReadNames}}</a>
+					</div>
+					<div id="div-unfinish" class="mui-slider-item mui-control-content">
+						<a class="contentCSS">{{detailModel.NoReadNames}}</a>
+					</div>
+				</div>
+			</template>
+
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/vue.min.js"></script>
+		<script src="../js/publicProtocol.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/demoCssJs/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/demoCssJs/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/utils/utils.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/utils/storageutil.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				var curPage = utils.getSessionStorageByUrlsKey();
+				console.log('2222:' + JSON.stringify(curPage));
+				//				var curPage = {
+				//					"id": "17", //通知ID
+				//					"flag": 0//1我发送的，0发给我的
+				//				}
+				//获取当前人员信息
+				getNoticeDetail(curPage.id);
+			});
+
+			var noticeDetailData = new Vue({
+				el: "#noticeDetailData",
+				data: {
+					flag: 0,
+					detailModel: ''
+				},
+				methods: {
+					checkEnc: function(tempFlag) {
+						console.log('tempFlag:' + tempFlag);
+					}
+				}
+			});
+			//获取通知详情
+			var getNoticeDetail = function(id) {
+				$.showLoading();
+				//12.通过ID获取通知公告
+				var tempData = {
+					noticeId: id //通知ID
+				}
+				getNoticeByIdPro(tempData, function function_name(data) {
+					$.hideLoading();
+					console.log('data:' + JSON.stringify(data));
+					if(data.RspCode == 0) {
+						noticeDetailData.flag = 1;
+						noticeDetailData.detailModel = data.RspData;
+					} else {
+						$.toast(data.RspTxt);
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

@@ -98,11 +98,11 @@
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">通知公告</h1>
+        <header class="mui-bar mui-bar-nav" style="background-color:#63BBFF;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+			<h1 class="mui-title" style="color: white;">通知公告</h1>
 		</header>
-		<!--<nav class="mui-bar mui-bar-tab">
+		<nav class="mui-bar mui-bar-tab">
 
 			<div class="mui-table-cell mui-col-xs-6 mui-text-center" style="padding-top: 15px;">
 				<a id="a0" onclick="send_receive('0')" style="color: deepskyblue;">发给我的</a>
@@ -110,89 +110,29 @@
 			<div class="mui-table-cell mui-col-xs-6 mui-text-center" style="padding-top: 15px;">
 				<a id="a1" onclick="send_receive('1')" style="color: black;">我发出的</a>
 			</div>
-		</nav>-->
+		</nav>
 		<div class="mui-content">
 			<div id="slider" class="mui-slider mui-fullscreen">
 				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 					<div class="mui-scroll">
-						<a class="mui-control-item mui-active" href="#item1mobile">
+						<a id="notice" class="mui-control-item  mui-active" href="#item1mobile">
 							通知公告
 						</a>
-						<a class="mui-control-item" href="#item2mobile">
+						<a id="apply" class="mui-control-item" href="#item2mobile">
 							事物审批
 						</a>
-						<a class="mui-control-item" href="#item3mobile">
-							班级管理
-						</a>
-
 
 					</div>
 				</div>
 				<div class="mui-slider-group">
-					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+					<div id="item1mobile" class="mui-slider-item mui-control-content  mui-active">
 						<div id="scroll1" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-1
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-2
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-3
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-4
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-5
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-6
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-7
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-8
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-9
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-10
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-11
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-12
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-13
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-14
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-15
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-16
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-17
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-18
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-19
-									</li>
-									<li class="mui-table-view-cell">
-										第1个选项卡子项-20
-									</li>
+								<ul id="notice_send" class="mui-table-view mui-hidden">
+
+								</ul>
+								<ul id="notice_recevice" class="mui-table-view">
+
 								</ul>
 							</div>
 						</div>
@@ -201,270 +141,13 @@
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-1
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-2
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-3
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-4
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-5
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-6
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-7
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-8
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-9
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-10
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-11
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-12
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-13
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-14
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-15
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-16
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-17
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-18
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-19
-									</li>
-									<li class="mui-table-view-cell">
-										第2个选项卡子项-20
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div id="item3mobile" class="mui-slider-item mui-control-content">
-						<div class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-1
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-2
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-3
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-4
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-5
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-6
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-7
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-8
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-9
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-10
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-11
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-12
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-13
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-14
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-15
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-16
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-17
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-18
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-19
-									</li>
-									<li class="mui-table-view-cell">
-										第3个选项卡子项-20
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div id="item4mobile" class="mui-slider-item mui-control-content">
-						<div class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-1
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-2
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-3
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-4
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-5
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-6
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-7
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-8
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-9
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-10
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-11
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-12
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-13
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-14
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-15
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-16
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-17
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-18
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-19
-									</li>
-									<li class="mui-table-view-cell">
-										第4个选项卡子项-20
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div id="item5mobile" class="mui-slider-item mui-control-content">
-						<div class="mui-scroll-wrapper">
-							<div class="mui-scroll">
-								<ul class="mui-table-view">
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-1
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-2
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-3
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-4
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-5
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-6
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-7
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-8
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-9
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-10
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-11
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-12
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-13
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-14
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-15
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-16
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-17
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-18
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-19
-									</li>
-									<li class="mui-table-view-cell">
-										第5个选项卡子项-20
-									</li>
+									<ul id="apply_send" class="mui-table-view mui-hidden">
+
+									</ul>
+									<ul id="apply_recevice" class="mui-table-view">
+
+									</ul>
+
 								</ul>
 							</div>
 						</div>
@@ -474,11 +157,133 @@
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
-		<script src="../js/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/mui.pullToRefresh.js"></script>
-		<script src="../js/mui.pullToRefresh.material.js"></script>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/utils/mui.pullToRefresh.js"></script>
+		<script src="../js/utils/mui.pullToRefresh.material.js"></script>
+		<script src="../js/utils/storageutil.js"></script>
+		<script src="../js/utils/utils.js"></script>
+		<script src="../js/publicProtocol.js"></script>
+		<script src='../js/lib/vconsole/vconsole.min.js'></script>
 		<script>
+			var current_key = {
+				title: 'notice',
+				send_recevice: 'recevice'
+			}
+			var datasource = {
+				notice_send: {
+					data: [],
+					refreshObj: {
+						refreshFlag: 0,
+						pageIndex: 1,
+						TotalPage: 1,
+					}
+
+				},
+				notice_recevice: {
+					data: [],
+					refreshObj: {
+						refreshFlag: 0,
+						pageIndex: 1,
+						TotalPage: 1,
+					}
+
+				},
+				apply_send: {
+					data: [],
+					refreshObj: {
+						refreshFlag: 0,
+						pageIndex: 1,
+						TotalPage: 1,
+					}
+
+				},
+				apply_recevice: {
+					data: [],
+					refreshObj: {
+						refreshFlag: 0,
+						pageIndex: 1,
+						TotalPage: 1,
+					}
+
+				},
+			}
+
 			mui.init();
+			var title_id = utils.getSessionStorageByUrlsKey();
+			console.log(title_id);
+			if(title_id == 2) {
+				document.getElementById("notice").className = "mui-control-item"
+				document.getElementById("apply").className = "mui-control-item mui-active"
+				document.getElementById("item1mobile").className = "mui-slider-item mui-control-content"
+				document.getElementById("item2mobile").className = "mui-slider-item mui-control-content  mui-active"
+				//			mui('#slider').slider().gotoItem(title_id)
+			}
+			var createFragment = function(ul, index, data) {
+				var length = ul.querySelectorAll('li').length;
+				var fragment = document.createDocumentFragment();
+				var li;
+				for(var i = 0; i < data.length; i++) {
+					var model = data[i];
+					li = document.createElement('li');
+					li.className = 'mui-table-view-cell';
+					if(index == 0) {
+						li.id = model.NoticeId
+						li.innerHTML = '<div>' +
+							'<p class="mui-ellipsis" style="white-space: pre;font-size:14px;color:#333333;width: 90%;"><span style="color: #FF0000;">[' +
+							model.NoticeStatus + ']</span>' + model.NoticeTitle +
+							'</p>' +
+							'<p class="mui-ellipsis mui-pull-right" style="margin-top: 5px;font-size:12px;color:#999999">' +
+							model.SendManName + "|" + model.SendTime +
+							'</p>' +
+							'</div>'
+					} else if(index == 1) {
+						var myId = "";
+						var Progress = "";
+						if(ul.id == "apply_send") {
+							li.id = myId = model.ApplyId
+							Progress = model.ApplyProgress
+						} else {
+							li.id = myId = model.ApproveId
+							Progress = model.ApproveProgress
+						}
+
+						li.innerHTML = '<div>' +
+							'<p class="mui-ellipsis" style="white-space: pre;font-size:14px;color:#333333;width: 90%;"><span style="color: #FF0000;">[' +
+							Progress + ']</span>' + model.ApplyTitle +
+							'</p>' +
+							'<p class="mui-ellipsis mui-pull-right" style="margin-top: 5px;font-size:12px;color:#999999">' +
+							myId + "|" + model.CreateTime +
+							'</p>' +
+							'</div>'
+					}
+
+					fragment.appendChild(li);
+				}
+				return fragment;
+			};
+			var send_receive = function(flag) {
+				var flag2 = 1 - flag;
+				$('#a' + flag).css({
+					'color': 'deepskyblue'
+				});
+				$('#a' + flag2).css({
+					'color': 'black'
+				});
+				if(flag == 0) {
+					var ul0 = document.getElementById(current_key.title + "_" + "recevice");
+					ul0.className = "mui-table-view";
+					var ul1 = document.getElementById(current_key.title + "_" + "send");
+					ul1.className = "mui-table-view mui-hidden";
+					current_key.send_recevice = "recevice";
+				} else {
+					var ul0 = document.getElementById(current_key.title + "_" + "send");
+					ul0.className = "mui-table-view";
+					var ul1 = document.getElementById(current_key.title + "_" + "recevice");
+					ul1.className = "mui-table-view mui-hidden";
+					current_key.send_recevice = "send";
+				}
+
+			};
 			(function($) {
 				//阻尼系数
 				var deceleration = mui.os.ios ? 0.003 : 0.0009;
@@ -487,57 +292,198 @@
 					indicators: true, //是否显示滚动条
 					deceleration: deceleration
 				});
+				var getNotice = function(title, sendFlag, callback) { //10.获取发送的通知公告列表
+
+					var k = current_key.title + '_' + current_key.send_recevice
+					var current_data = datasource[k];
+					var refreshObj = current_data.refreshObj
+					var tempData = {
+						schoolId: '1', //学校ID
+						sendManId: 'konglm', //发送人ID
+						sendMan: '', //发送人ID
+						receiveManId: '2', //接收人ID
+						title: '', //标题
+						status: '0', //状态,0 全部,1 发出,2 撤销
+						progress: '0', //进程,0 全部,1 新建,2 处理中,3 阅毕,4 已撤销
+						beginTime: '20170101', //查询开始时间
+						endTime: '20180127', //查询结束时间
+						pageIndex: refreshObj.pageIndex, //当前页数
+						pageSize: '10' //每页记录数
+					}
+
+					if(title == "notice" && sendFlag == "send") {
+						getSendNoticePro(tempData, function function_name(data) {
+							console.log(JSON.stringify(data))
+							if(data.RspCode == 0) {
+								datasource.notice_send.TotalPage = data.RspData.TotalPage;
+
+								if(datasource.notice_send.refreshObj.refreshFlag == 0) {
+									datasource.notice_send.refreshObj.pageIndex = 1;
+									datasource.notice_send.data = data.RspData.Data
+								} else {
+									datasource.notice_send.refreshObj.pageIndex++;
+									datasource.notice_send.data = datasource.notice_send.data.concat(data.RspData.Data)
+								}
+								callback(data.RspData.Data)
+							}
+						});
+					} else if(title == "notice" && sendFlag == "recevice") {
+						getReceiveNoticePro(tempData, function function_name(data) {
+							console.log(JSON.stringify(data))
+							if(data.RspCode == 0) {
+								datasource.notice_recevice.TotalPage = data.RspData.TotalPage;
+
+								if(datasource.notice_recevice.refreshObj.refreshFlag == 0) {
+									datasource.notice_recevice.refreshObj.pageIndex = 1;
+									datasource.notice_recevice.data = data.RspData.Data
+								} else {
+									datasource.notice_recevice.refreshObj.pageIndex++;
+									datasource.notice_recevice.data = datasource.notice_recevice.data.concat(data.RspData.Data)
+								}
+								callback(data.RspData.Data)
+							}
+						});
+					} else if(title == "apply" && sendFlag == "send") {
+						tempData = {
+							schoolId: '1', //学校ID
+							applyManId: 'konglm', //申请人ID
+							title: '', //标题
+							status: '0', //状态,0 全部,1 发出,2 撤销，3 被退回
+							progress: '0', //进程,0 全部,1 新建,2 审批中,3 审毕,4 退回，5 已撤销
+							beginTime: '20170101', //查询开始时间
+							endTime: '20180131', //查询结束时间
+							pageIndex: '1', //当前页数
+							pageSize: '10' //每页记录数，0 为全部
+						}
+						getAffairApplyPro(tempData, function function_name(data) {
+							console.log(JSON.stringify(data))
+							if(data.RspCode == 0) {
+								datasource.apply_send.TotalPage = data.RspData.TotalPage;
+
+								if(datasource.apply_send.refreshObj.refreshFlag == 0) {
+									datasource.apply_send.refreshObj.pageIndex = 1;
+									datasource.apply_send.data = data.RspData.Data
+								} else {
+									datasource.apply_send.refreshObj.pageIndex++;
+									datasource.apply_send.data = datasource.apply_send.data.concat(data.RspData.Data)
+								}
+								callback(data.RspData.Data)
+							}
+						});
+					} else if(title == "apply" && sendFlag == "recevice") {
+						var tempData = {
+							schoolId: '1', //学校ID
+							approveManId: '2', //审批人ID
+							title: '', //标题
+							applyMan: '', //申请人姓名
+							status: '0', //状态,0 全部,1 同意,2 退回，3 等待，4 未批
+							progress: '0', //进程,0 全部,1 新建,2 审批中,3 审毕,4 退回
+							beginTime: '20170101', //查询开始时间
+							endTime: '20180131', //查询结束时间
+							pageIndex: '1', //当前页数
+							pageSize: '10' //每页记录数，0 为全部
+						}
+						getAffairApprovePro(tempData, function function_name(data) {
+							console.log(JSON.stringify(data))
+							if(data.RspCode == 0) {
+								datasource.apply_recevice.TotalPage = data.RspData.TotalPage;
+
+								if(datasource.apply_recevice.refreshObj.refreshFlag == 0) {
+									datasource.apply_recevice.refreshObj.pageIndex = 1;
+									datasource.apply_recevice.data = data.RspData.Data
+								} else {
+									datasource.apply_recevice.refreshObj.pageIndex++;
+									datasource.apply_recevice.data = datasource.apply_recevice.data.concat(data.RspData.Data)
+								}
+								callback(data.RspData.Data)
+							}
+						});
+					}
+				}
 				$.ready(function() {
+
+					getNotice('notice', 'send', function(data) {
+						var ul = document.getElementById("notice_send");
+						ul.appendChild(createFragment(ul, 0, data));
+					});
+					getNotice('notice', 'recevice', function(data) {
+						var ul = document.getElementById("notice_recevice");
+						ul.appendChild(createFragment(ul, 0, data));
+					});
+					getNotice('apply', 'send', function(data) {
+						var ul = document.getElementById("apply_send");
+						ul.appendChild(createFragment(ul, 1, data));
+					});
+					getNotice('apply', 'recevice', function(data) {
+						var ul = document.getElementById("apply_recevice");
+						ul.appendChild(createFragment(ul, 1, data));
+					});
 					//循环初始化所有下拉刷新，上拉加载。
 					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
 						$(pullRefreshEl).pullToRefresh({
 							down: {
 								callback: function() {
 									var self = this;
-									setTimeout(function() {
-										var ul = self.element.querySelector('.mui-table-view');
-										ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+									var k = current_key.title + '_' + current_key.send_recevice
+									var current_data = datasource[k];
+									var refreshObj = current_data.refreshObj
+									refreshObj.refreshFlag = 0;
+									refreshObj.pageIndex = 1;
+									getNotice(current_key.title, current_key.send_recevice, function(data) {
+										var ul = document.getElementById(k);
+										ul.innerHTML = '';
+										ul.appendChild(createFragment(ul, index, data));
 										self.endPullDownToRefresh();
-									}, 1000);
+										self.refresh(true);
+
+									})
+
 								}
 							},
 							up: {
 								callback: function() {
 									var self = this;
-									setTimeout(function() {
-										var ul = self.element.querySelector('.mui-table-view');
-										ul.appendChild(createFragment(ul, index, 5));
-										self.endPullUpToRefresh();
-									}, 1000);
+									var k = current_key.title + '_' + current_key.send_recevice
+									var current_data = datasource[k];
+									var refreshObj = current_data.refreshObj
+									if(refreshObj.pageIndex < refreshObj.TotalPage) {
+										refreshObj.refreshFlag = 1;
+										getNotice(current_key.title, current_key.send_recevice, function(data) {
+											var ul = document.getElementById(k);
+											ul.appendChild(createFragment(ul, index, data));
+											self.endPullUpToRefresh();
+										})
+									} else {
+										self.endPullUpToRefresh(true);
+									}
+
 								}
 							}
 						});
 					});
-					var createFragment = function(ul, index, count, reverse) {
-						var length = ul.querySelectorAll('li').length;
-						var fragment = document.createDocumentFragment();
-						var li;
-						for(var i = 0; i < count; i++) {
-							li = document.createElement('li');
-							li.className = 'mui-table-view-cell';
-							li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
-							fragment.appendChild(li);
-						}
-						return fragment;
-					};
+
 				});
 			})(mui);
+			mui('.mui-segmented-control').on('tap', 'a', function() {
+				current_key.title = this.id
+			})
+			mui(".mui-table-view").on('tap', 'li', function() {
 
-			function send_receive(flag) {
-				var flag2 = 1 - flag;
-				$('#a' + flag).css({
-					'color': 'deepskyblue'
-				});
-				$('#a' + flag2).css({
-					'color': 'black'
-				});
+				var flag = this.parentElement.id.indexOf("send") >= 0 ? 1 : 0;
+				var data = {
+					id: this.id,
+					flag: flag //1:我发送的 0：发给我的
+				}
+				//				console.log(JSON.stringify(data))
+				//				console.log(this.parentElement.id)
+				var b = this.parentElement.id.indexOf("notice") >= 0
+				if(b) {
+					utils.hrefSessionStorage("noticeDetails.html", data)
+				} else {
+					utils.hrefSessionStorage("check-detail.html", data)
+				}
 
-			}
+			})
 		</script>
 	</body>
 
