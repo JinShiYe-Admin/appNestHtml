@@ -66,10 +66,7 @@
 		4395892B2016D7D50088290E /* wisdomCampus */ = {
 			isa = PBXGroup;
 			children = (
-				439589452016DD730088290E /* viewController */,
 				439589442016DD5C0088290E /* htmls */,
-				439589432016DD550088290E /* common */,
-				439589422016DD4D0088290E /* img */,
 				4395892C2016D7D50088290E /* AppDelegate.h */,
 				4395892D2016D7D50088290E /* AppDelegate.m */,
 				4395892F2016D7D50088290E /* ViewController.h */,
@@ -83,20 +80,6 @@
 			path = wisdomCampus;
 			sourceTree = "<group>";
 		};
-		439589422016DD4D0088290E /* img */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = img;
-			sourceTree = "<group>";
-		};
-		439589432016DD550088290E /* common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = common;
-			sourceTree = "<group>";
-		};
 		439589442016DD5C0088290E /* htmls */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,13 +89,6 @@
 				43E81A31201873640024A18C /* js */,
 			);
 			path = htmls;
-			sourceTree = "<group>";
-		};
-		439589452016DD730088290E /* viewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = viewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
