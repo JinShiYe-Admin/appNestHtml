@@ -30,10 +30,8 @@ var storageKeyName = (function(mod) {
 	mod.SHAKEHAND = 'ShakeHand'; //公钥，登录时，返回的握手信息，
 	mod.AUTOLOGIN = 'autoLogin'; //登录信息
 	mod.DOCUMENTSPATH = 'DOCUMENTSPATH'; //记录document的地址
-
-	mod.UUID = '';//uuid
-	mod.APPID = '';//appid
-	mod.TOKEN = '';//token
+	
+	mod.PUBLICPARAMETER = 'publicParameter'//共用参数
 
 	mod.WAITING = '加载中...'; //
 	mod.UPLOADING = '上传中...';

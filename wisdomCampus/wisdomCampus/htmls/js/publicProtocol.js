@@ -184,10 +184,12 @@ var tempAttendUrl1 = 'https://jbyj.jiaobaowang.net/SchoolOAService/approve/';
 
 //合并参数
 var extendParameter = function(data0) {
+	var personal = window.myStorage.getItem(window.storageKeyName.PERSONALINFO);
+	var publicPar = window.myStorage.getItem(window.storageKeyName.PUBLICPARAMETER);
 	var tempData = {
-		uuid: storageKeyName.UUID,
-		appid: storageKeyName.APPID,
-		token: storageKeyName.TOKEN,
+		uuid: publicPar.uuid,
+		appid: publicPar.appid,
+		token: personal.utoken
 	}
 	return $.extend(data0, tempData);
 }
