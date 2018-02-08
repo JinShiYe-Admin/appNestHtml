@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		431151D720285B74004D8C20 /* html in Resources */ = {isa = PBXBuildFile; fileRef = 431151D620285B74004D8C20 /* html */; };
-		431151D920285B7D004D8C20 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 431151D820285B7D004D8C20 /* js */; };
-		431C9055202467AF00EB1320 /* css in Resources */ = {isa = PBXBuildFile; fileRef = 431C9054202467AF00EB1320 /* css */; };
 		436BB77B20204F6500F8F432 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436BB77920204F6500F8F432 /* LoginViewController.m */; };
 		436BB77C20204F6500F8F432 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436BB77A20204F6500F8F432 /* LoginViewController.xib */; };
-		436BB7812020547200F8F432 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 436BB77D2020547200F8F432 /* img */; };
-		436BB7822020547200F8F432 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 436BB77E2020547200F8F432 /* fonts */; };
+		4389C217202BDDB90016067F /* img in Resources */ = {isa = PBXBuildFile; fileRef = 4389C213202BDDB80016067F /* img */; };
+		4389C218202BDDB90016067F /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 4389C214202BDDB80016067F /* fonts */; };
+		4389C219202BDDB90016067F /* css in Resources */ = {isa = PBXBuildFile; fileRef = 4389C215202BDDB90016067F /* css */; };
+		4389C21A202BDDB90016067F /* html in Resources */ = {isa = PBXBuildFile; fileRef = 4389C216202BDDB90016067F /* html */; };
+		4389C21C202BDDC50016067F /* js in Resources */ = {isa = PBXBuildFile; fileRef = 4389C21B202BDDC50016067F /* js */; };
 		4395892E2016D7D50088290E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4395892D2016D7D50088290E /* AppDelegate.m */; };
 		439589312016D7D50088290E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439589302016D7D50088290E /* ViewController.m */; };
 		439589342016D7D50088290E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439589322016D7D50088290E /* Main.storyboard */; };
@@ -23,14 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		431151D620285B74004D8C20 /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
-		431151D820285B7D004D8C20 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
-		431C9054202467AF00EB1320 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
 		436BB77820204F6500F8F432 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		436BB77920204F6500F8F432 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		436BB77A20204F6500F8F432 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		436BB77D2020547200F8F432 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
-		436BB77E2020547200F8F432 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		4389C213202BDDB80016067F /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
+		4389C214202BDDB80016067F /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		4389C215202BDDB90016067F /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
+		4389C216202BDDB90016067F /* html */ = {isa = PBXFileReference; lastKnownFileType = folder; path = html; sourceTree = "<group>"; };
+		4389C21B202BDDC50016067F /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		439589292016D7D50088290E /* wisdomCampus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wisdomCampus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4395892C2016D7D50088290E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4395892D2016D7D50088290E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -107,11 +107,11 @@
 		439589442016DD5C0088290E /* htmls */ = {
 			isa = PBXGroup;
 			children = (
-				431151D820285B7D004D8C20 /* js */,
-				431151D620285B74004D8C20 /* html */,
-				431C9054202467AF00EB1320 /* css */,
-				436BB77E2020547200F8F432 /* fonts */,
-				436BB77D2020547200F8F432 /* img */,
+				4389C21B202BDDC50016067F /* js */,
+				4389C215202BDDB90016067F /* css */,
+				4389C214202BDDB80016067F /* fonts */,
+				4389C216202BDDB90016067F /* html */,
+				4389C213202BDDB80016067F /* img */,
 			);
 			path = htmls;
 			sourceTree = "<group>";
@@ -184,13 +184,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				436BB7812020547200F8F432 /* img in Resources */,
-				431151D920285B7D004D8C20 /* js in Resources */,
-				431151D720285B74004D8C20 /* html in Resources */,
+				4389C217202BDDB90016067F /* img in Resources */,
+				4389C21C202BDDC50016067F /* js in Resources */,
+				4389C21A202BDDB90016067F /* html in Resources */,
 				436BB77C20204F6500F8F432 /* LoginViewController.xib in Resources */,
 				439589392016D7D50088290E /* LaunchScreen.storyboard in Resources */,
-				431C9055202467AF00EB1320 /* css in Resources */,
-				436BB7822020547200F8F432 /* fonts in Resources */,
+				4389C219202BDDB90016067F /* css in Resources */,
+				4389C218202BDDB90016067F /* fonts in Resources */,
 				439589362016D7D50088290E /* Assets.xcassets in Resources */,
 				439589342016D7D50088290E /* Main.storyboard in Resources */,
 			);

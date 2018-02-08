@@ -16,7 +16,8 @@ var storageKeyName = (function(mod) {
 	switch(mod.key) {
 		case 0: //开发
 		{
-			mod.SCHOOLID = 1
+			mod.SCHOOLID = 100005;//学校ID
+			mod.USERTYPE = 0;//用户类型，0老师,1家长,2学生
 		}
 
 			break;
@@ -30,7 +31,9 @@ var storageKeyName = (function(mod) {
 	mod.AUTOLOGIN = 'autoLogin'; //登录信息
 	mod.DOCUMENTSPATH = 'DOCUMENTSPATH'; //记录document的地址
 
-
+	mod.UUID = '';//uuid
+	mod.APPID = '';//appid
+	mod.TOKEN = '';//token
 
 	mod.WAITING = '加载中...'; //
 	mod.UPLOADING = '上传中...';

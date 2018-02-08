@@ -98,14 +98,22 @@
 								uuid: tempModel.uuid, //用户设备号
 								shaketype: 'login', //注册(reg),登录(login),修改密码(repw)
 								appid: tempModel.appid, //系统所分配的应用ID
-								schid: '100005', //学校ID
-								utp: '0' //用户类型，0老师,1家长,2学生
+								schid: storageKeyName.SCHOOLID, //学校ID
+								utp: storageKeyName.USERTYPE //用户类型，0老师,1家长,2学生
 							};
 							//登录
 							postDataEncry('Login', enData1, comData1, 0, function(data1) {
 								$.hideLoading();
 								if(data1.RspCode == 0) {
 									window.myStorage.setItem(window.storageKeyName.PERSONALINFO, data1.RspData);
+									storageKeyName.TOKEN = data1.RspData.utoken;
+									//将个人信息存入原生app
+									if(utils.getSystem() == 'Android') {
+										
+									}else{
+										window.webkit.messageHandlers.setInfo.postMessage(data1.RspData);
+									}
+									utils.hrefSessionStorage('home.html', {});
 								} else {
 									mui.toast(data1.RspTxt);
 								}
@@ -124,15 +132,16 @@
 		});
 
 		//从ios原生得到信息
-		//从ios原生得到信息
 		var setUUID = function(tempStr) {
 			var tempModel0 = $.parseJSON(tempStr);
 			tempModel.uuid = tempModel0.id;
 			tempModel.appid = tempModel0.name;
+			storageKeyName.UUID = tempModel0.id;
+			storageKeyName.APPID = tempModel0.name;
 			console.log('tempStr:' + tempStr);
 			//判断上次是否登录过，自动登录
 			var personal = window.myStorage.getItem(window.storageKeyName.PERSONALINFO);
-			if(personal && personal.utid != 0) { //有账号，正常登录
+			if(personal && personal.utid > 0) { //有账号，正常登录
 				//需要参数
 				var comData = {
 					uuid: tempModel0.id,
@@ -149,6 +158,7 @@
 					if(data.RspCode == 0) {
 						var tempInfo00 = window.myStorage.getItem(window.storageKeyName.PERSONALINFO);
 						tempInfo00.token = data.RspData;
+						storageKeyName.TOKEN = data.RspData;
 						window.myStorage.setItem(window.storageKeyName.PERSONALINFO, tempInfo00);
 						utils.hrefSessionStorage('home.html', {});
 					} else {
@@ -157,6 +167,18 @@
 				});
 			}
 		}
+		
+		//从ios原生得到信息
+		var setPersonInfo = function(tempStr) {
+			if (tempStr.length>0) {
+				var tempModel0 = $.parseJSON(tempStr);
+				console.log('tempStr:' + tempStr);
+				window.myStorage.setItem(window.storageKeyName.PERSONALINFO, tempModel0);
+			}else{
+				window.myStorage.setItem(window.storageKeyName.PERSONALINFO, {});
+			}
+		}
+		
 		//判断是否输入了值
 		var checkInput = function(text) {
 			if(text.trim().length == 0) {

@@ -44,13 +44,13 @@
     // addScriptMessageHandler 很容易导致循环引用
     // 控制器 强引用了WKWebView,WKWebView copy(强引用了）configuration， configuration copy （强引用了）userContentController
     // userContentController 强引用了 self （控制器）
-//    [self.webView.configuration.userContentController addScriptMessageHandler:self name:@"getUUID"];
+    [self.webView.configuration.userContentController addScriptMessageHandler:self name:@"setInfo"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     // 因此这里要记得移除handlers
-//    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@"getUUID"];
+    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@"setInfo"];
 }
 
 // 1 在发送请求之前，决定是否跳转
@@ -205,8 +205,12 @@
 }
 
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
-    if ([message.name isEqualToString:@"getUUID"]) {
-        
+    if ([message.name isEqualToString:@"setInfo"]) {
+        [[NSUserDefaults standardUserDefaults] setValue:message.body forKey:@"setInfo"];
+        NSString *jsStr = [NSString stringWithFormat:@"setPersonInfo('%@')",message.body];
+        [self.webView evaluateJavaScript:jsStr completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+            NSLog(@"%@----%@",result, error);
+        }];
     } else if ([message.name isEqualToString:@"Location"]) {
         NSLog(@"扫一扫1111:%@",message.body);
     }

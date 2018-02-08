@@ -151,7 +151,7 @@ var addDiv = function(imgUrl, title, group) {
 	div.className = "mui-slider-item mui-slider-item-duplicate"
 	div.innerHTML = '<a href="#">' +
 		'<img src="' + imgUrl + '">' +
-		'<p class="mui-slider-title"  style="background-color: red;">' + title + '</p>' +
+		'<p class="mui-slider-title"  style="background-color: #BFEBB2;">' + title + '</p>' +
 		'</a>';
 	group.appendChild(div);
 }

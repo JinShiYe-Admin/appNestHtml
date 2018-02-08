@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>新消息</title>
+		<meta name="anthor" content="an" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.css">
+		<link rel="stylesheet" href="../css/demos.css">
+		<link rel="stylesheet" href="../css/weui-extra.min.css" />
+		<style rel="stylesheet">
+			.mui-title {
+				color: white;
+			}
+			
+			.mui-bar-nav {
+				background-color: #3C9BFE;
+			}
+			
+			.mui-icon {
+				color: white;
+			}
+			
+			.mui-bar .mui-icon {
+				font-size: 15px;
+				padding-top: 15px;
+			}
+			
+			.weui-cell__hd {
+				padding-right: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">新消息</h1>
+			<a class="mui-icon mui-pull-right right-cancel">取消</a>
+		</header>
+		<div class="mui-content">
+			<div class="weui-cells">
+				<div class="weui-cell">
+					<div class="weui-cell__hd">标题</div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" placeholder="请输入标题" />
+					</div>
+					<div class="weui-cell__ft">0/64</div>
+				</div>
+				<div class="weui-cell">
+					<div class="weui-cell__hd">内容</div>
+					<div class="weui-cell__bd">
+						<textarea class="weui-textarea">
+		    			</textarea>
+					</div>
+					<div class="weui-cell__ft">
+						0/500
+					</div>
+				</div>
+			</div>
+			<div class="weui-cells weui-cells_form">
+				<div class="weui-cell">
+					<div class="weui-cell__bd">
+						<div class="weui-uploader">
+							<div class="weui-uploader__hd">
+								<p class="weui-uploader__title">文件上传</p>
+								<div class="weui-uploader__info">0/5</div>
+							</div>
+							<div class="weui-uploader__bd">
+								<ul class="weui-uploader__files" id="uploaderFiles">
+									<!--<li class="weui-uploader__file"></li>
+-->
+								</ul>
+								<div class="weui-uploader__input-box">
+									<input id="uploaderInput" class="weui-uploader__input" type="file" accept="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="weui-cells">
+				<div class="weui-cell ">
+					<div class="weui-cell__bd">
+						<p>接收人</p>
+					</div>
+					<div class="weui-cell__ft">
+						点击选择接收人
+					</div>
+				</div>
+				<div class="weui-cell weui-cell_switch">
+					<div class="weui-cell__bd">是否短信同步</div>
+					<div class="weui-cell__ft">
+						<input class="weui-switch" type="checkbox" />
+					</div>
+				</div>
+			</div>
+			<a href="" class="weui-btn weui-btn_default">发布</a>
+		</div>
+		<script src="../js/demoCssJs/jquery-2.1.4.js"></script>
+		<script src="../js/demoCssJs/jquery-weui.js"></script>
+		<script type="text/javascript">
+		</script>
+	</body>
+
+</html>

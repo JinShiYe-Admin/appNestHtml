@@ -11,6 +11,7 @@
 		var jsonStr = window.localStorage.getItem(k.toString());
 		return jsonStr ? JSON.parse(jsonStr).data : null;
 	};
+	myStorage.getItem = getItem;
 
 //	function getItemPlus(k) {
 //		var jsonStr = plus.storage.getItem(k.toString());
@@ -20,9 +21,9 @@
 	 * 获取数据
 	 * @param {Object} k
 	 */
-	myStorage.getItem = function(k) {
-		return getItem(k) || getItemPlus(k);
-	};
+//	myStorage.getItem = function(k) {
+//		return getItem(k) || getItemPlus(k);
+//	};
 	/**
 	 * 设置数据
 	 * @param {Object} k key 
@@ -98,16 +99,16 @@
 	};
 	myStorage.getItemByIndex = getItemByIndex;
 
-	function getItemByIndexPlus(index) {
-		var item = {
-			keyname: '',
-			keyvalue: ''
-		};
-		item.keyname = keyPlus(index);
-		item.keyvalue = getItemPlus(item.keyname);
-		return item;
-	};
-	myStorage.getItemByIndexPlus = getItemByIndexPlus;
+//	function getItemByIndexPlus(index) {
+//		var item = {
+//			keyname: '',
+//			keyvalue: ''
+//		};
+//		item.keyname = keyPlus(index);
+//		item.keyvalue = getItemPlus(item.keyname);
+//		return item;
+//	};
+//	myStorage.getItemByIndexPlus = getItemByIndexPlus;
 	/**
 	 * @author liuyf 2015-05-04
 	 * @description 获取所有存储对象
@@ -116,7 +117,7 @@
 	myStorage.getItems = function(k) {
 		var items = [];
 		var numKeys = getLength();
-		var numKeysPlus = getLengthPlus();
+//		var numKeysPlus = getLengthPlus();
 		var i = 0;
 		if (k) {
 			for (; i < numKeys; i++) {
@@ -124,18 +125,18 @@
 					items.push(getItemByIndex(i));
 				}
 			}
-			for (i = 0; i < numKeysPlus; i++) {
-				if (keyPlus(i).toString().indexOf(k) != -1) {
-					items.push(getItemByIndexPlus(i));
-				}
-			}
+//			for (i = 0; i < numKeysPlus; i++) {
+//				if (keyPlus(i).toString().indexOf(k) != -1) {
+//					items.push(getItemByIndexPlus(i));
+//				}
+//			}
 		} else {
 			for (i = 0; i < numKeys; i++) {
 				items.push(getItemByIndex(i));
 			}
-			for (i = 0; i < numKeysPlus; i++) {
-				items.push(getItemByIndexPlus(i));
-			}
+//			for (i = 0; i < numKeysPlus; i++) {
+//				items.push(getItemByIndexPlus(i));
+//			}
 		}
 		return items;
 	};
@@ -150,7 +151,7 @@
 			keys = [keys];
 		}
 		var numKeys = getLength();
-		var numKeysPlus = getLengthPlus();
+//		var numKeysPlus = getLengthPlus();
 		//TODO plus.storage是线性存储的，从后向前删除是可以的 
 		//稳妥的方案是将查询到的items，存到临时数组中，再删除  
 		var tmpks = [];
@@ -167,17 +168,17 @@
 		tmpks.forEach(function(k) {
 			removeItem(k);
 		});
-		for (i = numKeysPlus - 1; i >= 0; i--) {
-			tk = keyPlus(i);
-			Array.prototype.forEach.call(keys, function(k, index, arr) {
-				if (tk.toString().indexOf(k) != -1) {
-					tmpks.push(tk);
-				}
-			});
-		}
-		tmpks.forEach(function(k) {
-			removeItemPlus(k);
-		})
+//		for (i = numKeysPlus - 1; i >= 0; i--) {
+//			tk = keyPlus(i);
+//			Array.prototype.forEach.call(keys, function(k, index, arr) {
+//				if (tk.toString().indexOf(k) != -1) {
+//					tmpks.push(tk);
+//				}
+//			});
+//		}
+//		tmpks.forEach(function(k) {
+//			removeItemPlus(k);
+//		})
 		cb && cb();
 	};
 	win.myStorage = myStorage;
