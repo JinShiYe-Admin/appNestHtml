@@ -11,6 +11,7 @@ var signHmacSHA1=(function(mod){
 					'crypto-js':"../js/lib/crypto-js/crypto-js"
 				}
 			});
+			console.log('sssssttttttt');
 			var encrypted='';
 			require(['crypto-js'], function (CryptoJS) {
 				console.log('ssssssssss');

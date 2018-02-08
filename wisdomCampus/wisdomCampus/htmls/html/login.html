@@ -106,7 +106,6 @@
 								$.hideLoading();
 								if(data1.RspCode == 0) {
 									window.myStorage.setItem(window.storageKeyName.PERSONALINFO, data1.RspData);
-									storageKeyName.TOKEN = data1.RspData.utoken;
 									//将个人信息存入原生app
 									if(utils.getSystem() == 'Android') {
 										
@@ -136,8 +135,7 @@
 			var tempModel0 = $.parseJSON(tempStr);
 			tempModel.uuid = tempModel0.id;
 			tempModel.appid = tempModel0.name;
-			storageKeyName.UUID = tempModel0.id;
-			storageKeyName.APPID = tempModel0.name;
+			window.myStorage.setItem(window.storageKeyName.PUBLICPARAMETER, tempModel);
 			console.log('tempStr:' + tempStr);
 			//判断上次是否登录过，自动登录
 			var personal = window.myStorage.getItem(window.storageKeyName.PERSONALINFO);
@@ -158,7 +156,6 @@
 					if(data.RspCode == 0) {
 						var tempInfo00 = window.myStorage.getItem(window.storageKeyName.PERSONALINFO);
 						tempInfo00.token = data.RspData;
-						storageKeyName.TOKEN = data.RspData;
 						window.myStorage.setItem(window.storageKeyName.PERSONALINFO, tempInfo00);
 						utils.hrefSessionStorage('home.html', {});
 					} else {
