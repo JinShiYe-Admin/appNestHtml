@@ -315,20 +315,21 @@
 					var current_data = datasource[k];
 					var refreshObj = current_data.refreshObj
 					var tempData = {
-						schoolId: storageKeyName.SCHOOLID, //学校ID
-						sendManId: 'konglm', //发送人ID
-						sendMan: '', //发送人ID
-						receiveManId: '2', //接收人ID
-						title: '', //标题
-						status: '0', //状态,0 全部,1 发出,2 撤销
-						progress: '0', //进程,0 全部,1 新建,2 处理中,3 阅毕,4 已撤销
-						beginTime: '20170101', //查询开始时间
-						endTime: '20180127', //查询结束时间
-						pageIndex: refreshObj.pageIndex, //当前页数
-						pageSize: '10' //每页记录数
+
 					}
 
 					if(title == "notice" && sendFlag == "send") {
+             tempData = {
+             schoolId: storageKeyName.SCHOOLID, //学校ID
+             sendManId: 'konglm', //发送人ID
+             title: '', //标题
+             status: '0', //状态,0 全部,1 发出,2 撤销
+             progress: '0', //进程,0 全部,1 新建,2 处理中,3 阅毕,4 已撤销
+             beginTime: '20170101', //查询开始时间
+             endTime: '20180127', //查询结束时间
+             pageIndex: refreshObj.pageIndex, //当前页数
+             pageSize: '10' //每页记录数
+             }
 						getSendNoticePro(tempData, function function_name(data) {
 							console.log(JSON.stringify(data))
 							if(data.RspCode == 0) {
@@ -345,6 +346,18 @@
 							}
 						});
 					} else if(title == "notice" && sendFlag == "recevice") {
+             tempData = {
+             schoolId: storageKeyName.SCHOOLID, //学校ID
+             sendMan: '', //发送人ID
+             receiveManId: '2', //接收人ID
+             title: '', //标题
+             status: '0', //状态,0 全部,1 发出,2 撤销
+             progress: '0', //进程,0 全部,1 新建,2 处理中,3 阅毕,4 已撤销
+             beginTime: '20170101', //查询开始时间
+             endTime: '20180127', //查询结束时间
+             pageIndex: refreshObj.pageIndex, //当前页数
+             pageSize: '10' //每页记录数
+             }
 						getReceiveNoticePro(tempData, function function_name(data) {
 							console.log(JSON.stringify(data))
 							if(data.RspCode == 0) {
@@ -361,6 +374,7 @@
 							}
 						});
 					} else if(title == "apply" && sendFlag == "send") {
+
 						tempData = {
 							schoolId: storageKeyName.SCHOOLID, //学校ID
 							applyManId: 'konglm', //申请人ID
