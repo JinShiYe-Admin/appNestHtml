@@ -13,9 +13,20 @@
 @end
 
 @implementation ViewController
+//设置状态栏颜色
+- (void)setStatusBarBackgroundColor:(UIColor *)color {
+    
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+        statusBar.backgroundColor = color;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setStatusBarBackgroundColor:[UIColor colorWithRed:99/255.0 green:187/255.0 blue:255/255.0 alpha:1]];
+
     // Do any additional setup after loading the view, typically from a nib.
     //初始化一个WKWebViewConfiguration对象
     WKWebViewConfiguration *config = [WKWebViewConfiguration new];
