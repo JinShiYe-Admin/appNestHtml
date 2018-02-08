@@ -1,4 +1,14 @@
 //
+//document.write('<script src="../js/lib/RSA/Barrett.js"><\/script>');
+//document.write('<script src="../js/lib/RSA/BigInt.js"><\/script>');
+//document.write('<script src="../js/lib/RSA/RSA.js"><\/script>');
+//document.write('<script src="../js/utils/RSAEncrypt.js"><\/script>');
+//document.write('<script src="../js/lib/crypto-js/require.js"><\/script>');
+//document.write('<script src="../js/utils/signHmacSHA1.js"><\/script>');
+//document.write('<script src="../js/lib/jquery.js"><\/script>');
+//document.write('<script src="../js/utils/sortSign.js"><\/script>');
+//document.write('<script src="../js/utils/myStorage.js"><\/script>');
+//document.write('<script src="../js/utils/storageKeyName.js"><\/script>');
 
 function generateUUID() {
 	var d = new Date().getTime();
@@ -80,13 +90,13 @@ var xhrPost = function(url, commonData, callback) {
 	console.log('XHRP-Url:', url);
 	console.log('XHRP-Data:', commonData);
 	//拼接登录需要的签名
-	var signTemp = postDataEncry1({}, commonData, flag);
+	var signTemp = postDataEncry1({}, commonData, 0);
 	console.log('signTemp000:' + signTemp);
 	//生成签名，返回值sign则为签名
 	signHmacSHA1.sign(signTemp, 'jsy309', function(sign) {
 		//组装发送握手协议需要的data
 		//合并对象
-		var tempData = $.extend(encryData, commonData);
+		var tempData = $.extend({}, commonData);
 		//添加签名
 		tempData.sign = sign;
 		// 等待的对话框

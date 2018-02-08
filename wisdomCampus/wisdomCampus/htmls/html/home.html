@@ -97,8 +97,6 @@
 				margin-left: 5%;
 				width: 90%;
 			}
-			
-
 		</style>
 
 	</head>
@@ -151,6 +149,15 @@
 		<script type="text/javascript" src="../js/utils/storageKeyName.js"></script>
 		<script src='../js/lib/vconsole/vconsole.min.js'></script>
 		<script src="../js/home.js"></script>
+		<!--加密-->
+	<script src="../js/lib/RSA/Barrett.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/lib/RSA/BigInt.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/lib/RSA/RSA.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/utils/RSAEncrypt.js" type="text/javascript" charset="utf-8"></script>
+	<!---->
+	<script src='../js/lib/crypto-js/require.js'></script>
+	<script src='../js/utils/signHmacSHA1.js'></script>
+	<script src='../js/utils/sortSign.js'></script>
 		<script>
 			mui('.mui-scroll-wrapper').scroll({
 				indicators: true, //是否显示滚动条
@@ -177,14 +184,14 @@
 			});
 			var tempInfo = window.myStorage.getItem(window.storageKeyName.PERSONALINFO);
 			var tempName = '暂无姓名';
-			if (tempInfo) {
+			if(tempInfo) {
 				tempName = tempInfo.utname;
 			}
-			console.log('tempInfo:'+tempInfo);
+			console.log('tempInfo:' + tempInfo);
 			var mine = new Vue({
 				el: "#mine",
 				data: {
-					userName:tempName,
+					userName: tempName,
 					settings: [{
 						name: "密码修改",
 						icon: "",
@@ -199,7 +206,13 @@
 				methods: {
 					quitLogin: function() { //退出登录
 						window.myStorage.setItem(window.storageKeyName.PERSONALINFO, '');
-						console.log("退出时保存的个人信息："+myStorage.getItem(storageKeyName.PERSONALINFO))
+						//将个人信息存入原生app
+						if(utils.getSystem() == 'Android') {
+
+						} else {
+							window.webkit.messageHandlers.setInfo.postMessage('');
+						}
+						console.log("退出时保存的个人信息：" + myStorage.getItem(storageKeyName.PERSONALINFO))
 						this.isMineShow = false;
 						history.go(-1);
 					},

@@ -165,7 +165,17 @@
 		<script src="../js/publicProtocol.js"></script>
 		<script src='../js/lib/vconsole/vconsole.min.js'></script>
 		<script src="../js/utils/myStorage.js"></script>
-	<script src="../js/utils/storageKeyName.js"></script>
+		<script src="../js/utils/storageKeyName.js"></script>
+		
+		<!--加密-->
+	<script src="../js/lib/RSA/Barrett.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/lib/RSA/BigInt.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/lib/RSA/RSA.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/utils/RSAEncrypt.js" type="text/javascript" charset="utf-8"></script>
+	<!---->
+	<script src='../js/lib/crypto-js/require.js'></script>
+	<script src='../js/utils/signHmacSHA1.js'></script>
+	<script src='../js/utils/sortSign.js'></script>
 		<script>
 			var tempInfo00 = window.myStorage.getItem(window.storageKeyName.PERSONALINFO);
 			console.log(JSON.stringify(tempInfo00))
